@@ -17,11 +17,23 @@
         ` 사용자 정의 모듈 : 개발자가 직접 정의한 모듈
 """
 from random import choice
-
+# import random
+# choice( ) 는 랜덤하게 리스트에서 추출해주는 함수이다.
 def get_weather():
     today = ['맑음','비','눈','폭우','돌풍','따뜻']
     return choice(today)
 
 def get_date():
-    today = ['월','화','수','목','금','토','일ㄴ']
+    today = ['월','화','수','목','금','토','일']
     return choice(today)
+
+# 자기 파일에서만 실행하도록 설정한 것
+'''
+※ 여러개의 py 파일이 있을 때, 특정 파일부터 시작하기 위해 시작점을 지정할 수 있다.
+    (JAVA 에서 main( ) 가 있는 특정 파일이 존재했던 것과 같은 상황을 만들 수 있다. )
+※ 단, 파일 내에서는 1라인부터 차례대로 수행한다. 
+※ 일반적인 변수명과 구별하기 위해 언더바 _ _ 를 사용한다. 
+'''
+if __name__== '__main__':   # 프로그램 시작점이며, 메인함수과 같은 역할을 한다.
+    print(get_weather())
+    print(get_date())
