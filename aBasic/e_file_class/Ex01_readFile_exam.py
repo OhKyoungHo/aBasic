@@ -6,9 +6,17 @@
     존재하지 않는 파일명으로 예외가 발생해도 아무런 일을 하지 않는다
 """
 def count_words(filename):
-    pass  # pass 대신 완성
+    try:
+        with open(filename, 'r', encoding='utf=8') as f:
+            content = f.read()
+            words = content.split()
+    except FileNotFoundError:
+        pass
+    else:
+        print('총단어수 : ', len(words))
+
 
 # 존재하지 않는 파일명도 있음
-filenames = ['sample.xml', 'xxxx.xxx', 'temp.json']
+filenames = ['./data/' + 'sample.xml', './data/' + 'temp.xml', './data/' + 'sample.json', './data/' + 'temp2.xml','xxxx.xxx', './data/' + 'temp.json']
 for filename in filenames:
     count_words(filename)
